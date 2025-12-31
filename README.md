@@ -1,109 +1,36 @@
-# SDB Social Impact Website
-
-**Domain:** SDBsocialimpact.com
-**Hosting:** AWS
-**Built with:** Claude Code
-
-## About
-
-SDB Social Impact is a consulting firm specializing in strategic operations and impact measurement for mission-driven organizations. Founded by Stacey D. Burns, an experienced interim COO with over 15 years in the social impact sector, the company partners with nonprofits and social enterprises to build operational strength and prove the power of their impact.
-
-## Mission
-
-> "Your Mission Is Powerful. Let's Make Sure Your Operations Are, Too."
-
-We help nonprofits and social enterprises shape strategy, stabilize operations, and prove value. We speak both nonprofit and business fluently—bringing clarity, structure, and insight to your mission.
-
-## Services
-
-### COO Services Consult
-**Duration:** 1 hour
-
-Strategy, Organizational Development, and Leadership Coaching for Social Impact Organizations. Get high-level operational leadership without the full-time cost. Implement the changes that move your mission forward.
-
-### Social Return on Investment (SROI) Consult
-**Duration:** 45 minutes
-
-Understanding and Enhancing the Value of your Impact. Prove the value of your work through rigorous, internationally aligned SROI studies.
-
-## Why Choose Us
-
-- **Personalized Support** - We focus on your unique needs
-- **Sector Expertise** - Whether you're in healthcare, housing, or the arts—we get your world and tailor our support accordingly
-- **Proven Results** - Our SROI studies have helped organizations secure crucial funding
-- **Flexible Engagement** - High-level operational leadership without the full-time cost
-
-## Project Structure
-
-```
-sdbsocialimpact/
-├── public/
-│   ├── index.html
-│   ├── images/
-│   └── assets/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── styles/
-│   └── utils/
-├── package.json
-├── README.md
-└── .gitignore
-```
-
-## Pages
-
-- **Home** - Hero section, services overview, testimonials, and call-to-action
-- **Services** - Detailed service offerings with booking functionality
-- **About/Our Journey** - Company story and founder background
-- **Blog/Insights** - Articles on social impact, evaluation techniques, and strategic consulting
-- **Contact** - Service booking and inquiry form
-
-## Tech Stack (Recommended)
-
-- **Frontend:** React/Next.js or HTML/CSS/JavaScript
-- **Styling:** Tailwind CSS or custom CSS
-- **Hosting:** AWS (S3 + CloudFront for static, or Amplify for full-stack)
-- **Domain:** SDBsocialimpact.com
-
-## AWS Deployment
-
-1. Configure AWS CLI with credentials
-2. Create S3 bucket for static hosting
-3. Set up CloudFront distribution for CDN
-4. Configure Route 53 for domain DNS
-5. Enable HTTPS with AWS Certificate Manager
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
+First, run the development server:
+
 ```bash
-# Clone the repository
-git clone https://github.com/dan-adam-ain/SDB_Social_Impact.git
-
-# Navigate to project directory
-cd SDB_Social_Impact
-
-# Install dependencies
-npm install
-
-# Run development server
 npm run dev
-
-# Build for production
-npm run build
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Design Notes
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Color Scheme:** Dark theme with black background, white/cream text, and accent buttons
-- **Typography:** Elegant serif fonts for headings, clean sans-serif for body
-- **Logo:** Circular design featuring "SDB SOCIAL impact" in script and serif fonts
-- **Style:** Professional, sophisticated, mission-driven aesthetic
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Contact
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-For inquiries about services, use the "Let's Chat!" button or the Contact page to book a consultation.
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-© SDB Social Impact
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
