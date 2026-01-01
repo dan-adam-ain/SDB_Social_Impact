@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Navigation() {
@@ -10,11 +11,15 @@ export default function Navigation() {
     <nav className="fixed w-full bg-[#0a0a0a]/95 backdrop-blur-sm z-50 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 rounded-full border-2 border-[#c9a962] flex items-center justify-center">
-              <span className="font-serif text-sm font-bold text-[#c9a962]">SDB</span>
-            </div>
-            <span className="font-serif text-xl hidden sm:block">Social Impact</span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/branding/SVG_D8.svg"
+              alt="SDB Social Impact"
+              width={160}
+              height={80}
+              className="h-14 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

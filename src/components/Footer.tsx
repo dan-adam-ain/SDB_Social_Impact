@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -7,11 +8,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-12 h-12 rounded-full border-2 border-[#c9a962] flex items-center justify-center">
-                <span className="font-serif text-sm font-bold text-[#c9a962]">SDB</span>
-              </div>
-              <span className="font-serif text-xl">Social Impact</span>
+            <div className="mb-4">
+              <Image
+                src="/branding/SVG_D8.svg"
+                alt="SDB Social Impact"
+                width={140}
+                height={70}
+                className="h-12 w-auto"
+              />
             </div>
             <p className="text-[#a0a0a0] max-w-md">
               Helping nonprofits and social enterprises shape strategy, stabilize operations, and prove the power of their impact.
