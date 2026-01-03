@@ -19,13 +19,13 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn delay={200}>
             <p className="text-xl md:text-2xl text-[#a0a0a0] mb-8 max-w-2xl mx-auto">
-              We help nonprofits and social enterprises shape strategy, stabilize operations, and prove value.
+              We help nonprofits and social enterprises shape strategy, stabilize operations, and prove value to funders through rigorous SROI studies.
             </p>
           </AnimateIn>
           <AnimateIn delay={300}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary text-lg">
-                Let&apos;s Chat! &rarr;
+                Schedule a Consultation &rarr;
               </Link>
               <Link href="/services" className="btn-outline text-lg">
                 Explore Services
@@ -35,8 +35,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Results Section */}
+      <section className="py-20 px-4 section-gradient">
+        <div className="max-w-6xl mx-auto">
+          <AnimateIn>
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">Proven Impact</h2>
+              <div className="accent-line mx-auto mb-4" />
+              <p className="text-[#a0a0a0] max-w-2xl mx-auto">
+                Our clients use SROI studies to demonstrate their value and secure critical funding.
+              </p>
+            </div>
+          </AnimateIn>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <AnimateIn delay={100}>
+              <div className="text-center">
+                <p className="font-serif text-5xl md:text-6xl gradient-text mb-2">15+</p>
+                <p className="text-[#a0a0a0]">Years of Experience</p>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={200}>
+              <div className="text-center">
+                <p className="font-serif text-5xl md:text-6xl gradient-text mb-2">$4M+</p>
+                <p className="text-[#a0a0a0]">Funding Secured by Clients</p>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={300}>
+              <div className="text-center">
+                <p className="font-serif text-5xl md:text-6xl gradient-text mb-2">6:1</p>
+                <p className="text-[#a0a0a0]">Average SROI Ratio</p>
+              </div>
+            </AnimateIn>
+            <AnimateIn delay={400}>
+              <div className="text-center">
+                <p className="font-serif text-5xl md:text-6xl gradient-text mb-2">50+</p>
+                <p className="text-[#a0a0a0]">Organizations Served</p>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
       {/* Services Overview */}
-      <section className="py-24 px-4 section-gradient">
+      <section className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
           <AnimateIn>
             <div className="text-center mb-12">
@@ -57,11 +99,11 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="font-serif text-2xl mb-2">COO Services Consult</h3>
-                <p className="text-[#c9a962] mb-4 text-sm font-medium">1 Hour Session</p>
+                <h3 className="font-serif text-2xl mb-2">Fractional COO Services</h3>
+                <p className="text-[#c9a962] mb-4 text-sm font-medium">Ongoing Partnership</p>
                 <p className="text-[#a0a0a0] mb-6">
-                  Strategy, Organizational Development, and Leadership Coaching for Social Impact Organizations.
-                  Get high-level operational leadership without the full-time cost.
+                  Get executive-level operational leadership without the full-time cost. We work alongside your team
+                  to implement strategy, develop your organization, and coach your leaders—typically on a monthly retainer basis.
                 </p>
                 <Link href="/services" className="text-[#c9a962] hover:text-[#d4b56e] transition-colors inline-flex items-center gap-2 group">
                   Learn more
@@ -78,11 +120,11 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
-                <h3 className="font-serif text-2xl mb-2">SROI Consult</h3>
-                <p className="text-[#c9a962] mb-4 text-sm font-medium">45 Minute Session</p>
+                <h3 className="font-serif text-2xl mb-2">SROI Studies</h3>
+                <p className="text-[#c9a962] mb-4 text-sm font-medium">Project-Based Engagement</p>
                 <p className="text-[#a0a0a0] mb-6">
-                  Understanding and Enhancing the Value of your Impact. Prove the value of your work
-                  through rigorous, internationally aligned SROI studies.
+                  Prove your impact with a comprehensive Social Return on Investment analysis. We conduct stakeholder
+                  interviews, build your impact model, and deliver a funder-ready report that quantifies your social value.
                 </p>
                 <Link href="/services" className="text-[#c9a962] hover:text-[#d4b56e] transition-colors inline-flex items-center gap-2 group">
                   Learn more
@@ -95,7 +137,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-4">
+      <section className="py-24 px-4 section-gradient">
         <div className="max-w-7xl mx-auto">
           <AnimateIn>
             <div className="text-center mb-16">
@@ -112,8 +154,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold mb-2">Personalized Support</h3>
-                <p className="text-[#a0a0a0] text-sm">We focus on your unique needs</p>
+                <h3 className="font-semibold mb-2">Bilingual in Business & Mission</h3>
+                <p className="text-[#a0a0a0] text-sm">We translate between funder expectations and nonprofit realities</p>
               </div>
             </AnimateIn>
 
@@ -124,8 +166,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold mb-2">Sector Expertise</h3>
-                <p className="text-[#a0a0a0] text-sm">Healthcare, housing, arts—we get your world</p>
+                <h3 className="font-semibold mb-2">Deep Sector Expertise</h3>
+                <p className="text-[#a0a0a0] text-sm">Healthcare, housing, arts, education—we understand your world</p>
               </div>
             </AnimateIn>
 
@@ -136,8 +178,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <h3 className="font-semibold mb-2">Proven Results</h3>
-                <p className="text-[#a0a0a0] text-sm">Our SROI studies help secure crucial funding</p>
+                <h3 className="font-semibold mb-2">Funder-Ready Deliverables</h3>
+                <p className="text-[#a0a0a0] text-sm">Our SROI reports help clients secure grants and investments</p>
               </div>
             </AnimateIn>
 
@@ -149,7 +191,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="font-semibold mb-2">Flexible Engagement</h3>
-                <p className="text-[#a0a0a0] text-sm">High-level leadership without full-time cost</p>
+                <p className="text-[#a0a0a0] text-sm">From single projects to ongoing partnerships—we adapt to you</p>
               </div>
             </AnimateIn>
           </div>
@@ -157,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-24 px-4 section-gradient">
+      <section className="py-24 px-4">
         <AnimateIn>
           <div className="max-w-4xl mx-auto text-center">
             <div className="icon-container w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-8">
@@ -168,20 +210,24 @@ export default function Home() {
             <h2 className="font-serif text-3xl md:text-4xl mb-8">What Our Clients Say</h2>
             <blockquote className="text-xl md:text-2xl italic text-[#a0a0a0] mb-8 leading-relaxed">
               &ldquo;SDB Social Impact transformed how we measure and communicate our value to funders.
-              Their SROI analysis helped us secure funding that had previously been out of reach.&rdquo;
+              Their SROI analysis showed we create $6.50 in social value for every dollar invested—a finding
+              that helped us secure a major foundation grant that had previously been out of reach.&rdquo;
             </blockquote>
             <div className="flex items-center justify-center gap-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#c9a962] to-[#8a7343] flex items-center justify-center text-[#0a0a0a] font-bold">
-                NE
+                ED
               </div>
-              <p className="text-[#c9a962] font-medium">Nonprofit Executive Director</p>
+              <div className="text-left">
+                <p className="text-[#c9a962] font-medium">Executive Director</p>
+                <p className="text-[#a0a0a0] text-sm">Community Health Nonprofit</p>
+              </div>
             </div>
           </div>
         </AnimateIn>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 relative overflow-hidden">
+      <section className="py-24 px-4 section-gradient relative overflow-hidden">
         {/* Background accent */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-[600px] h-[600px] bg-[#c9a962]/5 rounded-full blur-3xl" />
@@ -189,12 +235,12 @@ export default function Home() {
 
         <AnimateIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="font-serif text-3xl md:text-5xl mb-6">Ready to Strengthen Your Impact?</h2>
+            <h2 className="font-serif text-3xl md:text-5xl mb-6">Ready to Prove Your Impact?</h2>
             <p className="text-xl text-[#a0a0a0] mb-8">
-              Let&apos;s discuss how we can help your organization thrive.
+              Schedule a free consultation to discuss your organization&apos;s needs and explore how we can help.
             </p>
             <Link href="/contact" className="btn-primary text-lg inline-flex items-center gap-2 group">
-              Schedule a Consultation
+              Schedule Your Free Consultation
               <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
             </Link>
           </div>
