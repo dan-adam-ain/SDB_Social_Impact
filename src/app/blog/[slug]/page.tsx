@@ -34,25 +34,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <div>
       {/* Hero */}
       <section className="py-16 md:py-24 px-4 relative overflow-hidden">
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#c9a962]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#6B7C8F]/10 rounded-full blur-3xl" />
         <AnimateIn>
           <div className="max-w-3xl mx-auto relative z-10">
             <Link
               href="/blog"
-              className="text-[#c9a962] hover:text-[#d4b56e] transition-colors inline-flex items-center gap-2 mb-8 group"
+              className="text-[#6B7C8F] hover:text-[#5A6B7E] transition-colors inline-flex items-center gap-2 mb-8 group"
             >
               <span className="group-hover:-translate-x-1 transition-transform">&larr;</span>
               Back to Insights
             </Link>
-            <span className="text-[#c9a962] text-sm font-semibold uppercase tracking-wider block mb-4">
+            <span className="text-[#6B7C8F] text-sm font-semibold uppercase tracking-wider block mb-4">
               {post.category}
             </span>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
               {post.title}
             </h1>
-            <div className="flex items-center gap-4 text-[#a0a0a0]">
+            <div className="flex items-center gap-4 text-[#6B7C8F]">
               <span>{post.date}</span>
-              <span className="w-1 h-1 rounded-full bg-[#a0a0a0]"></span>
+              <span className="w-1 h-1 rounded-full bg-[#6B7C8F]"></span>
               <span>{post.readTime}</span>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
               if (trimmed.startsWith('## ')) {
                 return (
-                  <h2 key={index} className="font-serif text-2xl text-white mt-12 mb-6">
+                  <h2 key={index} className="font-serif text-2xl text-[#2F3A44] mt-12 mb-6">
                     {trimmed.replace('## ', '')}
                   </h2>
                 );
@@ -76,7 +76,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
               if (trimmed.startsWith('### ')) {
                 return (
-                  <h3 key={index} className="font-serif text-xl text-white mt-8 mb-4">
+                  <h3 key={index} className="font-serif text-xl text-[#2F3A44] mt-8 mb-4">
                     {trimmed.replace('### ', '')}
                   </h3>
                 );
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
               if (trimmed.startsWith('> ')) {
                 return (
-                  <blockquote key={index} className="border-l-4 border-[#c9a962] pl-6 my-8 italic text-[#a0a0a0]">
+                  <blockquote key={index} className="border-l-4 border-[#6B7C8F] pl-6 my-8 italic text-[#6B7C8F]">
                     {trimmed.replace('> ', '')}
                   </blockquote>
                 );
@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 return (
                   <ul key={index} className="my-6 space-y-2 list-disc list-inside">
                     {items.map((item, i) => (
-                      <li key={i} className="text-[#d0d0d0]">{item.replace('- ', '')}</li>
+                      <li key={i} className="text-[#2F3A44]">{item.replace('- ', '')}</li>
                     ))}
                   </ul>
                 );
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
               if (trimmed.startsWith('**') && trimmed.endsWith('**')) {
                 return (
-                  <p key={index} className="font-semibold text-white my-6 text-lg">
+                  <p key={index} className="font-semibold text-[#2F3A44] my-6 text-lg">
                     {trimmed.slice(2, -2)}
                   </p>
                 );
@@ -112,7 +112,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               if (!trimmed) return null;
 
               return (
-                <p key={index} className="my-6 text-[#d0d0d0] leading-relaxed text-lg">
+                <p key={index} className="my-6 text-[#2F3A44] leading-relaxed text-lg">
                   {trimmed}
                 </p>
               );
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <AnimateIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-2xl md:text-3xl mb-4">Want to Discuss These Ideas?</h2>
-            <p className="text-[#a0a0a0] mb-8">
+            <p className="text-[#6B7C8F] mb-8">
               Let&apos;s talk about how these principles can strengthen your organization.
             </p>
             <Link href="/contact" className="btn-primary inline-flex items-center gap-2 group">

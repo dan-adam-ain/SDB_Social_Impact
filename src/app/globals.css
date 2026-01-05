@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #f5f5f0;
-  --accent: #c9a962;
-  --accent-hover: #d4b56e;
-  --accent-glow: rgba(201, 169, 98, 0.3);
-  --muted: #a0a0a0;
+  --background: #F7F8FA;
+  --foreground: #2F3A44;
+  --accent: #6B7C8F;
+  --accent-hover: #5A6B7E;
+  --secondary-bg: #E6E8EB;
+  --muted: #6B7C8F;
 }
 
 @theme inline {
@@ -14,6 +14,7 @@
   --color-foreground: var(--foreground);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-secondary-bg: var(--secondary-bg);
   --color-muted: var(--muted);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -39,20 +40,19 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
-  color: #0a0a0a;
+  background: var(--accent);
+  color: var(--background);
   padding: 0.875rem 2.25rem;
   border-radius: 0.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(201, 169, 98, 0.2);
   position: relative;
   overflow: hidden;
 }
 
 .btn-primary:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(201, 169, 98, 0.35);
 }
 
 .btn-outline {
@@ -72,44 +72,40 @@ body {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--secondary-bg);
+  border: 1px solid rgba(107, 124, 143, 0.15);
   border-radius: 1rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-  border-color: rgba(201, 169, 98, 0.4);
+  border-color: rgba(107, 124, 143, 0.3);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(201, 169, 98, 0.1);
+  box-shadow: 0 10px 30px rgba(47, 58, 68, 0.1);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, #e8d5a3 50%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .section-gradient {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+  background: var(--secondary-bg);
 }
 
 .accent-line {
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
+  background: var(--accent);
   border-radius: 2px;
 }
 
 .icon-container {
-  background: linear-gradient(135deg, rgba(201, 169, 98, 0.15) 0%, rgba(201, 169, 98, 0.05) 100%);
-  border: 1px solid rgba(201, 169, 98, 0.2);
+  background: rgba(107, 124, 143, 0.1);
+  border: 1px solid rgba(107, 124, 143, 0.2);
   transition: all 0.3s ease;
 }
 
 .icon-container:hover {
-  background: linear-gradient(135deg, rgba(201, 169, 98, 0.25) 0%, rgba(201, 169, 98, 0.1) 100%);
-  border-color: rgba(201, 169, 98, 0.4);
-  transform: scale(1.05);
+  background: rgba(107, 124, 143, 0.15);
+  border-color: rgba(107, 124, 143, 0.3);
 }

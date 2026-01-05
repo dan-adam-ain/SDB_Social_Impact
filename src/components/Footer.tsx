@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/10 py-12">
+    <footer className="bg-[#E6E8EB] border-t border-[#2F3A44]/10 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Description */}
@@ -17,7 +17,7 @@ export default function Footer() {
                 className="h-12 w-auto"
               />
             </div>
-            <p className="text-[#a0a0a0] max-w-md">
+            <p className="text-[#6B7C8F] max-w-md">
               Helping nonprofits and social enterprises shape strategy, stabilize operations, and prove the power of their impact.
             </p>
           </div>
@@ -25,11 +25,11 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-[#a0a0a0]">
-              <li><Link href="/services" className="hover:text-[#c9a962] transition-colors">Services</Link></li>
-              <li><Link href="/about" className="hover:text-[#c9a962] transition-colors">Our Journey</Link></li>
-              <li><Link href="/blog" className="hover:text-[#c9a962] transition-colors">Insights</Link></li>
-              <li><Link href="/contact" className="hover:text-[#c9a962] transition-colors">Contact</Link></li>
+            <ul className="space-y-2 text-[#6B7C8F]">
+              <li><Link href="/services" className="hover:text-[#5A6B7E] transition-colors">Services</Link></li>
+              <li><Link href="/about" className="hover:text-[#5A6B7E] transition-colors">Our Journey</Link></li>
+              <li><Link href="/blog" className="hover:text-[#5A6B7E] transition-colors">Insights</Link></li>
+              <li><Link href="/contact" className="hover:text-[#5A6B7E] transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-8 pt-8 text-center text-[#a0a0a0]">
+        <div className="border-t border-[#2F3A44]/10 mt-8 pt-8 text-center text-[#6B7C8F]">
           <p>&copy; {new Date().getFullYear()} SDB Social Impact. All rights reserved.</p>
         </div>
       </div>

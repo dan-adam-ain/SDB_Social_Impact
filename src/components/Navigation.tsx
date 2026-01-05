@@ -8,7 +8,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed w-full bg-[#0a0a0a]/95 backdrop-blur-sm z-50 border-b border-white/10">
+    <nav className="fixed w-full bg-[#F7F8FA]/95 backdrop-blur-sm z-50 border-b border-[#2F3A44]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center">
@@ -24,10 +24,10 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="hover:text-[#c9a962] transition-colors">Home</Link>
-            <Link href="/services" className="hover:text-[#c9a962] transition-colors">Services</Link>
-            <Link href="/about" className="hover:text-[#c9a962] transition-colors">Our Journey</Link>
-            <Link href="/blog" className="hover:text-[#c9a962] transition-colors">Insights</Link>
+            <Link href="/" className="hover:text-[#6B7C8F] transition-colors">Home</Link>
+            <Link href="/services" className="hover:text-[#6B7C8F] transition-colors">Services</Link>
+            <Link href="/about" className="hover:text-[#6B7C8F] transition-colors">Our Journey</Link>
+            <Link href="/blog" className="hover:text-[#6B7C8F] transition-colors">Insights</Link>
             <Link href="/contact" className="btn-primary">Let&apos;s Chat!</Link>
           </div>
 
@@ -51,10 +51,10 @@ export default function Navigation() {
         {isOpen && (
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-4">
-              <Link href="/" className="hover:text-[#c9a962] transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
-              <Link href="/services" className="hover:text-[#c9a962] transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
-              <Link href="/about" className="hover:text-[#c9a962] transition-colors" onClick={() => setIsOpen(false)}>Our Journey</Link>
-              <Link href="/blog" className="hover:text-[#c9a962] transition-colors" onClick={() => setIsOpen(false)}>Insights</Link>
+              <Link href="/" className="hover:text-[#6B7C8F] transition-colors" onClick={() => setIsOpen(false)}>Home</Link>
+              <Link href="/services" className="hover:text-[#6B7C8F] transition-colors" onClick={() => setIsOpen(false)}>Services</Link>
+              <Link href="/about" className="hover:text-[#6B7C8F] transition-colors" onClick={() => setIsOpen(false)}>Our Journey</Link>
+              <Link href="/blog" className="hover:text-[#6B7C8F] transition-colors" onClick={() => setIsOpen(false)}>Insights</Link>
               <Link href="/contact" className="btn-primary inline-block text-center" onClick={() => setIsOpen(false)}>Let&apos;s Chat!</Link>
             </div>
           </div>
