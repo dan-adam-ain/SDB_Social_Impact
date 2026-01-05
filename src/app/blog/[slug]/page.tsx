@@ -34,25 +34,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <div>
       {/* Hero */}
       <section className="py-16 md:py-24 px-4 relative overflow-hidden">
-        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#6B7C8F]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-[#3B8EA5]/10 rounded-full blur-3xl" />
         <AnimateIn>
           <div className="max-w-3xl mx-auto relative z-10">
             <Link
               href="/blog"
-              className="text-[#6B7C8F] hover:text-[#5A6B7E] transition-colors inline-flex items-center gap-2 mb-8 group"
+              className="text-[#3B8EA5] hover:text-[#2D7A8F] transition-colors inline-flex items-center gap-2 mb-8 group"
             >
               <span className="group-hover:-translate-x-1 transition-transform">&larr;</span>
               Back to Insights
             </Link>
-            <span className="text-[#6B7C8F] text-sm font-semibold uppercase tracking-wider block mb-4">
+            <span className="text-[#3B8EA5] text-sm font-semibold uppercase tracking-wider block mb-4">
               {post.category}
             </span>
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl mb-6 leading-tight">
               {post.title}
             </h1>
-            <div className="flex items-center gap-4 text-[#6B7C8F]">
+            <div className="flex items-center gap-4 text-[#3B8EA5]">
               <span>{post.date}</span>
-              <span className="w-1 h-1 rounded-full bg-[#6B7C8F]"></span>
+              <span className="w-1 h-1 rounded-full bg-[#3B8EA5]"></span>
               <span>{post.readTime}</span>
             </div>
           </div>
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
               if (trimmed.startsWith('> ')) {
                 return (
-                  <blockquote key={index} className="border-l-4 border-[#6B7C8F] pl-6 my-8 italic text-[#6B7C8F]">
+                  <blockquote key={index} className="border-l-4 border-[#3B8EA5] pl-6 my-8 italic text-[#3B8EA5]">
                     {trimmed.replace('> ', '')}
                   </blockquote>
                 );
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <AnimateIn>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-serif text-2xl md:text-3xl mb-4">Want to Discuss These Ideas?</h2>
-            <p className="text-[#6B7C8F] mb-8">
+            <p className="text-[#3B8EA5] mb-8">
               Let&apos;s talk about how these principles can strengthen your organization.
             </p>
             <Link href="/contact" className="btn-primary inline-flex items-center gap-2 group">

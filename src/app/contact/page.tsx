@@ -29,12 +29,12 @@ export default function ContactPage() {
     <div>
       {/* Hero */}
       <section className="py-24 px-4 relative overflow-hidden">
-        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#6B7C8F]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#3B8EA5]/10 rounded-full blur-3xl" />
         <AnimateIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">Let&apos;s Build a Stronger Organization—Together.</h1>
             <div className="accent-line mx-auto mb-6" />
-            <p className="text-xl text-[#6B7C8F]">
+            <p className="text-xl text-[#3B8EA5]">
               Whether you need hands-on operational support or a credible way to prove your impact, we&apos;re here to help.
             </p>
           </div>
@@ -49,7 +49,7 @@ export default function ContactPage() {
             <AnimateIn direction="left">
               <div className="card p-8">
                 <h2 className="font-serif text-2xl mb-4">Schedule your free consultation</h2>
-                <p className="text-[#6B7C8F] mb-6">
+                <p className="text-[#3B8EA5] mb-6">
                   Let&apos;s align your mission with your operations—and create greater impact, together.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -64,7 +64,7 @@ export default function ContactPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#6B7C8F] text-[#2F3A44] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#3B8EA5] text-[#2F3A44] transition-colors"
                     />
                   </div>
 
@@ -79,7 +79,7 @@ export default function ContactPage() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#6B7C8F] text-[#2F3A44] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#3B8EA5] text-[#2F3A44] transition-colors"
                     />
                   </div>
 
@@ -93,7 +93,7 @@ export default function ContactPage() {
                       name="organization"
                       value={formData.organization}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#6B7C8F] text-[#2F3A44] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#3B8EA5] text-[#2F3A44] transition-colors"
                     />
                   </div>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#6B7C8F] text-[#2F3A44] transition-colors"
+                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#3B8EA5] text-[#2F3A44] transition-colors"
                     >
                       <option value="">Select a service...</option>
                       <option value="coo">Operational Support (1 Hour)</option>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Tell us about your organization and what you're hoping to achieve..."
-                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#6B7C8F] text-[#2F3A44] placeholder-[#6B7C8F] resize-none transition-colors"
+                      className="w-full px-4 py-3 bg-[#F7F8FA] border border-[#2F3A44]/20 rounded-lg focus:outline-none focus:border-[#3B8EA5] text-[#2F3A44] placeholder-[#3B8EA5] resize-none transition-colors"
                     />
                   </div>
 
@@ -145,7 +145,7 @@ export default function ContactPage() {
               <AnimateIn delay={100} direction="right">
                 <div>
                   <h2 className="font-serif text-2xl mb-6">Ready to Amplify Your Impact?</h2>
-                  <p className="text-[#6B7C8F] mb-6">
+                  <p className="text-[#3B8EA5] mb-6">
                     We offer a free consultation to explore how we can support your mission. Reach out to SDB Social Impact and let&apos;s start a conversation about your goals and challenges.
                     
                   </p>
@@ -153,14 +153,14 @@ export default function ContactPage() {
                     <div className="card p-6">
                       <div className="flex items-start gap-4">
                         <div className="icon-container w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <svg className="w-6 h-6 text-[#6B7C8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-6 h-6 text-[#3B8EA5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                           </svg>
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">Operational Support</h3>
                           
-                          <p className="text-[#6B7C8F] text-sm">
+                          <p className="text-[#3B8EA5] text-sm">
                             Hands-on COO services to strengthen your organization&apos;s foundation.
                           </p>
                         </div>
@@ -169,14 +169,14 @@ export default function ContactPage() {
                     <div className="card p-6">
                       <div className="flex items-start gap-4">
                         <div className="icon-container w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <svg className="w-6 h-6 text-[#6B7C8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-6 h-6 text-[#3B8EA5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                           </svg>
                         </div>
                         <div>
                           <h3 className="font-semibold mb-1">Impact Measurement</h3>
                           
-                          <p className="text-[#6B7C8F] text-sm">
+                          <p className="text-[#3B8EA5] text-sm">
                             SROI analysis to credibly demonstrate the value of your work.
                           </p>
                         </div>
@@ -189,28 +189,28 @@ export default function ContactPage() {
               <AnimateIn delay={200} direction="right">
                 <div>
                   <h2 className="font-serif text-2xl mb-6">What to Expect</h2>
-                  <ul className="space-y-4 text-[#6B7C8F]">
+                  <ul className="space-y-4 text-[#3B8EA5]">
                     <li className="flex items-start">
                       <span className="icon-container w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                        <span className="text-[#6B7C8F] font-semibold text-sm">1</span>
+                        <span className="text-[#3B8EA5] font-semibold text-sm">1</span>
                       </span>
                       <span>We&apos;ll respond to your inquiry within 24-48 hours.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="icon-container w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                        <span className="text-[#6B7C8F] font-semibold text-sm">2</span>
+                        <span className="text-[#3B8EA5] font-semibold text-sm">2</span>
                       </span>
                       <span>We&apos;ll schedule a brief discovery call to understand your needs.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="icon-container w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                        <span className="text-[#6B7C8F] font-semibold text-sm">3</span>
+                        <span className="text-[#3B8EA5] font-semibold text-sm">3</span>
                       </span>
                       <span>We&apos;ll recommend the best service option for your situation.</span>
                     </li>
                     <li className="flex items-start">
                       <span className="icon-container w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                        <span className="text-[#6B7C8F] font-semibold text-sm">4</span>
+                        <span className="text-[#3B8EA5] font-semibold text-sm">4</span>
                       </span>
                       <span>Begin your journey toward operational excellence!</span>
                     </li>
