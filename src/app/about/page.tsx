@@ -2,8 +2,8 @@ import Link from 'next/link';
 import AnimateIn from '@/components/AnimateIn';
 
 export const metadata = {
-  title: 'Our Journey | SDB Social Impact',
-  description: 'Learn about Stacey D. Burns and SDB Social Impact - over 15 years of experience in the social impact sector.',
+  title: 'Meet the Guide Behind SDB Social Impact | SDB Social Impact',
+  description: 'Learn about Stacey D. Burns and SDB Social Impact - over 20 years of experience in the social impact sector.',
 };
 
 export default function AboutPage() {
@@ -32,7 +32,7 @@ export default function AboutPage() {
                 <span className="text-[#c9a962] text-sm font-semibold uppercase tracking-wider">Founder</span>
                 <h2 className="font-serif text-3xl md:text-4xl mt-2 mb-6">Stacey D. Burns</h2>
                 <p className="text-[#a0a0a0] mb-4">
-                  With over 15 years of experience in the social impact sector, Stacey D. Burns has
+                  With over 20 years of experience in the social impact sector, Stacey D. Burns has
                   served as an interim COO for numerous nonprofits and social enterprises, helping
                   them build operational strength and prove the power of their impact.
                 </p>
@@ -84,9 +84,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="font-serif text-2xl mb-4">Our Mission</h3>
                 <p className="text-[#a0a0a0]">
-                  To help nonprofits and social enterprises shape strategy, stabilize operations,
-                  and prove value. We bring clarity, structure, and insight to your mission—because
-                  your mission is powerful, and your operations should be too.
+                  To ensure your operations and impact are as strong as your mission.
                 </p>
               </div>
             </AnimateIn>

@@ -32,10 +32,10 @@ export default function ContactPage() {
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#c9a962]/10 rounded-full blur-3xl" />
         <AnimateIn>
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">Let&apos;s Chat!</h1>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl mb-6">Let&apos;s Build a Stronger Organization—Together.</h1>
             <div className="accent-line mx-auto mb-6" />
             <p className="text-xl text-[#a0a0a0]">
-              Ready to strengthen your operations and prove your impact? We&apos;d love to hear from you.
+              Whether you need hands-on operational support or a credible way to prove your impact, we&apos;re here to help.
             </p>
           </div>
         </AnimateIn>
@@ -48,7 +48,10 @@ export default function ContactPage() {
             {/* Contact Form */}
             <AnimateIn direction="left">
               <div className="card p-8">
-                <h2 className="font-serif text-2xl mb-6">Send Us a Message</h2>
+                <h2 className="font-serif text-2xl mb-4">Schedule your free consultation</h2>
+                <p className="text-[#a0a0a0] mb-6">
+                  Let&apos;s align your mission with your operations—and create greater impact, together.
+                </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -106,8 +109,8 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 bg-[#0a0a0a] border border-white/20 rounded-lg focus:outline-none focus:border-[#c9a962] text-white transition-colors"
                     >
                       <option value="">Select a service...</option>
-                      <option value="coo">COO Services Consult (1 Hour)</option>
-                      <option value="sroi">SROI Consult (45 Minutes)</option>
+                      <option value="coo">Operational Support (1 Hour)</option>
+                      <option value="sroi">Impact Measurement (45 Minutes)</option>
                       <option value="both">Both Services</option>
                       <option value="other">Other / Not Sure</option>
                     </select>
@@ -141,10 +144,10 @@ export default function ContactPage() {
             <div className="space-y-8">
               <AnimateIn delay={100} direction="right">
                 <div>
-                  <h2 className="font-serif text-2xl mb-6">Book a Consultation</h2>
+                  <h2 className="font-serif text-2xl mb-6">Ready to Amplify Your Impact?</h2>
                   <p className="text-[#a0a0a0] mb-6">
-                    Ready to take the next step? Book a consultation directly to discuss your
-                    organization&apos;s needs and how we can help.
+                    We offer a free consultation to explore how we can support your mission. Reach out to SDB Social Impact and let&apos;s start a conversation about your goals and challenges.
+                    
                   </p>
                   <div className="space-y-4">
                     <div className="card p-6">
@@ -155,10 +158,10 @@ export default function ContactPage() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="font-semibold mb-1">COO Services Consult</h3>
-                          <p className="text-[#c9a962] text-sm mb-2">1 Hour Session</p>
+                          <h3 className="font-semibold mb-1">Operational Support</h3>
+                          
                           <p className="text-[#a0a0a0] text-sm">
-                            Strategic operations consultation for your organization.
+                            Hands-on COO services to strengthen your organization&apos;s foundation.
                           </p>
                         </div>
                       </div>
@@ -171,10 +174,10 @@ export default function ContactPage() {
                           </svg>
                         </div>
                         <div>
-                          <h3 className="font-semibold mb-1">SROI Consult</h3>
-                          <p className="text-[#c9a962] text-sm mb-2">45 Minute Session</p>
+                          <h3 className="font-semibold mb-1">Impact Measurement</h3>
+                          
                           <p className="text-[#a0a0a0] text-sm">
-                            Explore impact measurement and SROI opportunities.
+                            SROI analysis to credibly demonstrate the value of your work.
                           </p>
                         </div>
                       </div>
