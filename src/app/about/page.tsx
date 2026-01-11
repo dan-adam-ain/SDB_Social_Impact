@@ -48,13 +48,15 @@ export default function AboutPage() {
               </div>
             </AnimateIn>
             <AnimateIn delay={200} direction="right">
-              <div className="card p-8">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#3B8EA5] to-[#2D7A8F] flex items-center justify-center">
-                  <span className="font-serif text-3xl font-bold text-[#F7F8FA]">SDB</span>
-                </div>
-                <div className="text-center">
+              <div className="card p-4 overflow-hidden">
+                <img
+                  src="/images/presentation_speaker_bw_web.jpg"
+                  alt="Stacey D. Burns speaking at a presentation"
+                  className="rounded-lg w-full h-auto object-cover"
+                />
+                <div className="text-center mt-4">
                   <h3 className="font-serif text-xl mb-2">Stacey D. Burns</h3>
-                  <p className="text-[#3B8EA5] mb-4">Founder & Principal Consultant</p>
+                  <p className="text-[#3B8EA5] mb-2">Founder & Principal Consultant</p>
                   <p className="text-[#3B8EA5] text-sm">
                     Interim COO | SROI Specialist | Strategic Advisor
                   </p>
