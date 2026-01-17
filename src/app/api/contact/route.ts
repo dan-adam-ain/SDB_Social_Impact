@@ -45,7 +45,7 @@ ${message}
     const command = new SendEmailCommand({
       Source: process.env.SES_FROM_EMAIL!,
       Destination: {
-        ToAddresses: ['stacey@sdbsocialimpact.com'],
+        ToAddresses: [process.env.SES_TO_EMAIL!],
       },
       Message: {
         Subject: {
