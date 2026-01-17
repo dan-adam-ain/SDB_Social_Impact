@@ -11,11 +11,31 @@ export default function ContactPage() {
     service: '',
     message: '',
   });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! We will be in touch soon.');
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', organization: '', service: '', message: '' });
+    } catch {
+      setStatus('error');
+      setErrorMessage('Something went wrong. Please try again or email us directly.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -132,10 +152,29 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <button type="submit" className="btn-primary w-full text-lg group">
-                    Send Message
-                    <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
-                  </button>
+                  {status === 'success' ? (
+                    <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                      Thank you for your message! We&apos;ll be in touch within 24-48 hours.
+                    </div>
+                  ) : (
+                    <>
+                      {status === 'error' && (
+                        <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                          {errorMessage}
+                        </div>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={status === 'loading'}
+                        className="btn-primary w-full text-lg group disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {status === 'loading' ? 'Sending...' : 'Send Message'}
+                        {status !== 'loading' && (
+                          <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">&rarr;</span>
+                        )}
+                      </button>
+                    </>
+                  )}
                 </form>
               </div>
             </AnimateIn>
