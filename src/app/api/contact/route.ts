@@ -10,6 +10,21 @@ const SERVICE_LABELS: Record<string, string> = {
 
 export async function POST(request: NextRequest) {
   try {
+    // Check for required env vars
+    const missingVars = [];
+    if (!process.env.SES_REGION) missingVars.push('SES_REGION');
+    if (!process.env.SES_ACCESS_KEY_ID) missingVars.push('SES_ACCESS_KEY_ID');
+    if (!process.env.SES_SECRET_ACCESS_KEY) missingVars.push('SES_SECRET_ACCESS_KEY');
+    if (!process.env.SES_FROM_EMAIL) missingVars.push('SES_FROM_EMAIL');
+    if (!process.env.SES_TO_EMAIL) missingVars.push('SES_TO_EMAIL');
+
+    if (missingVars.length > 0) {
+      return NextResponse.json(
+        { error: `Missing environment variables: ${missingVars.join(', ')}` },
+        { status: 500 }
+      );
+    }
+
     const ses = new SESClient({
       region: process.env.SES_REGION,
       credentials: {
@@ -67,8 +82,10 @@ ${message}
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Contact form error:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorName = error instanceof Error ? error.name : 'Unknown';
     return NextResponse.json(
-      { error: 'Failed to send message' },
+      { error: 'Failed to send message', details: errorMessage, type: errorName },
       { status: 500 }
     );
   }
