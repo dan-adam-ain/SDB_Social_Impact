@@ -1,7 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Script from 'next/script';
 import AnimateIn from '@/components/AnimateIn';
+
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -11,8 +21,14 @@ export default function ContactPage() {
     service: '',
     message: '',
   });
+  const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const formLoadTime = useRef<number>(Date.now());
+
+  useEffect(() => {
+    formLoadTime.current = Date.now();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,10 +36,24 @@ export default function ContactPage() {
     setErrorMessage('');
 
     try {
+      // Get reCAPTCHA token
+      let recaptchaToken = '';
+      if (window.grecaptcha) {
+        recaptchaToken = await window.grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
+          { action: 'contact' }
+        );
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          website: honeypot,
+          recaptchaToken,
+          formLoadTime: formLoadTime.current,
+        }),
       });
 
       if (!response.ok) {
@@ -47,6 +77,10 @@ export default function ContactPage() {
 
   return (
     <div>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+        strategy="lazyOnload"
+      />
       {/* Hero */}
       <section className="py-24 px-4 relative overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#3B8EA5]/10 rounded-full blur-3xl" />
@@ -73,6 +107,20 @@ export default function ContactPage() {
                   Let&apos;s align your mission with your operations—and create greater impact, together.
                 </p>
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot field - hidden from users, bots will fill it */}
+                  <div className="absolute -left-[9999px]" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input
+                      type="text"
+                      id="website"
+                      name="website"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Your Name *

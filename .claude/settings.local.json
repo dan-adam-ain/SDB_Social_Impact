@@ -25,7 +25,9 @@
       "Bash(python3:*)",
       "Bash(npx tsc:*)",
       "Bash(echo:*)",
-      "Bash(printf:*)"
+      "Bash(printf:*)",
+      "Bash(timeout 5 tail:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
