@@ -1,14 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 
-const ses = new SESClient({
-  region: process.env.SES_REGION || 'us-east-1',
-  credentials: {
-    accessKeyId: process.env.SES_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.SES_SECRET_ACCESS_KEY!,
-  },
-});
-
 const SERVICE_LABELS: Record<string, string> = {
   coo: 'Operational Support (1 Hour)',
   sroi: 'Impact Measurement (45 Minutes)',
@@ -18,6 +10,14 @@ const SERVICE_LABELS: Record<string, string> = {
 
 export async function POST(request: NextRequest) {
   try {
+    const ses = new SESClient({
+      region: process.env.SES_REGION,
+      credentials: {
+        accessKeyId: process.env.SES_ACCESS_KEY_ID as string,
+        secretAccessKey: process.env.SES_SECRET_ACCESS_KEY as string,
+      },
+    });
+
     const body = await request.json();
     const { name, email, organization, service, message } = body;
 
