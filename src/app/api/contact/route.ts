@@ -71,13 +71,35 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // reCAPTCHA verification
-    if (recaptchaToken) {
+    // reCAPTCHA verification — FAILS CLOSED, but only when protection is armed.
+    //
+    // The previous guard was `if (recaptchaToken)`, which SKIPPED verification whenever
+    // the client failed to produce a token. That is the wrong direction: the case you
+    // most need to catch (no token) was the case that bypassed the check. It was not
+    // hypothetical — from 2026-01-18 to 2026-09-10 the site key was undefined in the
+    // browser bundle, so no token was ever produced, so every submission skipped
+    // verification and the form had no reCAPTCHA protection at all.
+    //
+    // "Armed" means RECAPTCHA_SECRET_KEY is configured, which is the operator's signal
+    // that they intend verification. When it is absent — a local checkout with no
+    // secrets — we allow the submission and say so loudly, rather than rejecting every
+    // message on a developer's laptop. This is what makes it safe to arm fail-closed in
+    // the same commit that fixes the key: neither environment is left unable to submit.
+    const recaptchaArmed = Boolean(process.env.RECAPTCHA_SECRET_KEY);
+    if (recaptchaArmed) {
+      if (!recaptchaToken) {
+        console.warn('Rejected: reCAPTCHA is armed but the request carried no token.');
+        return NextResponse.json({ success: true }); // Silently reject
+      }
       const recaptchaResult = await verifyRecaptcha(recaptchaToken);
       if (!recaptchaResult.success || recaptchaResult.score < RECAPTCHA_THRESHOLD) {
         console.log(`Spam detected: reCAPTCHA failed (score: ${recaptchaResult.score})`);
         return NextResponse.json({ success: true }); // Silently reject
       }
+    } else {
+      console.warn(
+        'reCAPTCHA NOT armed (RECAPTCHA_SECRET_KEY unset) — submission allowed unverified.'
+      );
     }
 
     if (!name || !email || !message) {

@@ -7,6 +7,13 @@ frontend:
     build:
       commands:
         - env | grep -E '^SES_|^RECAPTCHA_|^NEXT_PUBLIC_' >> .env.production
+        # The Amplify variable is named RECAPTCHA_SITE_KEY, but a site key is read by
+        # CLIENT code, and Next only inlines NEXT_PUBLIC_-prefixed variables into the
+        # browser bundle. Without this line the client reads `undefined`, and the live
+        # site served `recaptcha/api.js?render=undefined` from 2026-01-18 to 2026-09-10.
+        # Mapped here rather than renamed in the console so the fix lives in the repo,
+        # is reviewable, and cannot be silently undone by a console edit.
+        - if [ -n "$RECAPTCHA_SITE_KEY" ]; then echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$RECAPTCHA_SITE_KEY" >> .env.production; fi
         - npm run build
   artifacts:
     baseDirectory: .next
