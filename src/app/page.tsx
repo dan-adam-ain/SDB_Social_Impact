@@ -162,7 +162,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <AnimateIn>
             <h2 className="font-serif text-3xl md:text-5xl text-center mb-16">
-              What Our <span className="gradient-text">Clients Say</span>
+              What <span className="gradient-text">Clients Say</span>
             </h2>
           </AnimateIn>
           <div className="grid md:grid-cols-2 gap-8">
@@ -172,11 +172,11 @@ export default function Home() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p className="text-lg text-[#2F3A44] mb-6 leading-relaxed">
-                  &ldquo;Stacey helped us completely transform how we track and report our outcomes. For the first time, we can show funders exactly what their investment achieves.&rdquo;
+                  &ldquo;Working with Stacey&rsquo;s team was a pleasure, from the conversations we had to scope the project through to the final results, because their questions and analyses are based in that shared mission of conveying the value of human capital. The SROI that they calculated is now a key part of our messaging on the value of investing in United Way Suncoast.&rdquo;
                 </p>
                 <div>
-                  <p className="font-semibold text-[#3B8EA5]">Maria Chen</p>
-                  <p className="text-sm text-[#3B8EA5]">Executive Director, Community First Initiative</p>
+                  <p className="font-semibold text-[#3B8EA5]">Josh Dunn</p>
+                  <p className="text-sm text-[#3B8EA5]">Senior Vice President, Community Impact, United Way Suncoast</p>
                 </div>
               </div>
             </AnimateIn>
@@ -186,11 +186,11 @@ export default function Home() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
                 <p className="text-lg text-[#2F3A44] mb-6 leading-relaxed">
-                  &ldquo;We were drowning in inefficient processes. SDB helped us streamline operations so we could serve 40% more clients without adding staff.&rdquo;
+                  &ldquo;Perhaps her most enduring accomplishment was leading the process to identify, recruit, and successfully transition a permanent Chief Operations Officer for the organization while providing strategic and mindful coaching to me as the CEO&hellip; Rather than simply managing the role, Stacey strengthened the organization for the future.&rdquo;
                 </p>
                 <div>
-                  <p className="font-semibold text-[#3B8EA5]">James Rodriguez</p>
-                  <p className="text-sm text-[#3B8EA5]">Program Director, Urban Youth Alliance</p>
+                  <p className="font-semibold text-[#3B8EA5]">Kris Lewis</p>
+                  <p className="text-sm text-[#3B8EA5]">CEO, Pikes Peak Habitat for Humanity</p>
                 </div>
               </div>
             </AnimateIn>
