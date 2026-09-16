@@ -4,6 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 import Script from 'next/script';
 import AnimateIn from '@/components/AnimateIn';
 
+// NEXT_PUBLIC_* is inlined at BUILD time. If it is absent from the build environment this is
+// undefined at runtime and NOTHING can recover it there — so every use below must tolerate that.
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
 declare global {
   interface Window {
     grecaptcha: {
@@ -36,13 +40,22 @@ export default function ContactPage() {
     setErrorMessage('');
 
     try {
-      // Get reCAPTCHA token
+      // Get reCAPTCHA token.
+      // ⛔ BOTH conditions are required. `grecaptcha` alone is not enough: when
+      // NEXT_PUBLIC_RECAPTCHA_SITE_KEY is absent at BUILD time the script tag below still
+      // requested Google's api.js, `window.grecaptcha` was still defined, and `execute('')`
+      // THREW — landing in the catch below and showing every visitor
+      // "Something went wrong", so the form could not be submitted at all. A missing key must
+      // degrade to "no token", never to a broken form; the server already treats a missing
+      // token as skip-verification rather than as a failure.
       let recaptchaToken = '';
-      if (window.grecaptcha) {
-        recaptchaToken = await window.grecaptcha.execute(
-          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '',
-          { action: 'contact' }
-        );
+      if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
+        try {
+          recaptchaToken = await window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+        } catch {
+          // Spam protection is best-effort. A reCAPTCHA failure must never block a real enquiry.
+          recaptchaToken = '';
+        }
       }
 
       const response = await fetch('/api/contact', {
@@ -77,10 +90,14 @@ export default function ContactPage() {
 
   return (
     <div>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-        strategy="lazyOnload"
-      />
+      {/* Only load reCAPTCHA when a site key was actually baked in. Without this guard the
+          src rendered with the literal, uninterpolated `${...}` text in the query string. */}
+      {RECAPTCHA_SITE_KEY && (
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}
+          strategy="lazyOnload"
+        />
+      )}
       {/* Hero */}
       <section className="py-24 px-4 relative overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-[#3B8EA5]/10 rounded-full blur-3xl" />
