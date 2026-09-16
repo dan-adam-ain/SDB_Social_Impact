@@ -21,7 +21,12 @@ frontend:
         - if [ -n "${RECAPTCHA_SITE_KEY:-}" ] && [ -z "${NEXT_PUBLIC_RECAPTCHA_SITE_KEY:-}" ]; then echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$RECAPTCHA_SITE_KEY" >> .env.production; fi
         # Fail the BUILD if the site key is absent entirely. A build that silently produces a
         # bundle with no key is what shipped `render=undefined` to production for 8 months.
-        - if ! grep -q '^NEXT_PUBLIC_RECAPTCHA_SITE_KEY=..' .env.production; then echo "FATAL: NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set - the browser would get no site key"; exit 1; fi
+        # ⚠️ NO COLON-SPACE ANYWHERE IN THESE COMMANDS. An unquoted YAML sequence item
+        # containing ": " parses as a mapping, and Amplify rejects the whole buildspec with
+        # "CustomerError - the commands provided in the buildspec are malformed". That failure
+        # happens BEFORE any build step runs, and `npm run lint` / `npm run build` cannot catch
+        # it because neither parses this file.
+        - if ! grep -q '^NEXT_PUBLIC_RECAPTCHA_SITE_KEY=..' .env.production; then echo "FATAL - NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set, the browser would get no site key"; exit 1; fi
         - npm run build
   artifacts:
     baseDirectory: .next
