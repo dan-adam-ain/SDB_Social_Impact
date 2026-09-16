@@ -13,7 +13,15 @@ frontend:
         # site served `recaptcha/api.js?render=undefined` from 2026-01-18 to 2026-09-10.
         # Mapped here rather than renamed in the console so the fix lives in the repo,
         # is reviewable, and cannot be silently undone by a console edit.
-        - if [ -n "$RECAPTCHA_SITE_KEY" ]; then echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$RECAPTCHA_SITE_KEY" >> .env.production; fi
+        # ⚠️ As of 2026-09-16 the Amplify variable was RENAMED in the console to
+        # NEXT_PUBLIC_RECAPTCHA_SITE_KEY, so the grep above already carries it and this line
+        # is a FALLBACK, not the live path. It is kept deliberately: if anyone ever renames it
+        # back, or restores an older console export, this keeps the client working instead of
+        # silently reverting to `render=undefined`. It is a no-op when the old name is absent.
+        - if [ -n "${RECAPTCHA_SITE_KEY:-}" ] && [ -z "${NEXT_PUBLIC_RECAPTCHA_SITE_KEY:-}" ]; then echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$RECAPTCHA_SITE_KEY" >> .env.production; fi
+        # Fail the BUILD if the site key is absent entirely. A build that silently produces a
+        # bundle with no key is what shipped `render=undefined` to production for 8 months.
+        - if ! grep -q '^NEXT_PUBLIC_RECAPTCHA_SITE_KEY=..' .env.production; then echo "FATAL: NEXT_PUBLIC_RECAPTCHA_SITE_KEY is not set - the browser would get no site key"; exit 1; fi
         - npm run build
   artifacts:
     baseDirectory: .next

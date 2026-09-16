@@ -88,8 +88,27 @@ export async function POST(request: NextRequest) {
     const recaptchaArmed = Boolean(process.env.RECAPTCHA_SECRET_KEY);
     if (recaptchaArmed) {
       if (!recaptchaToken) {
-        console.warn('Rejected: reCAPTCHA is armed but the request carried no token.');
-        return NextResponse.json({ success: true }); // Silently reject
+        // 🔴 A REAL ERROR, NOT A SILENT REJECT — and the distinction is the whole point.
+        //
+        // Silent reject is right for a FAILED verification: a spammer should not learn they
+        // were caught. It is WRONG for a MISSING token, because that is overwhelmingly a
+        // broken client, not an attack — an ad blocker, a CSP, a blocked Google domain, or
+        // exactly the defect this commit fixes, where the site key never reached the browser.
+        //
+        // ⛔ Returning `{success:true}` here would DISCARD a real enquiry and tell the visitor
+        // it was sent. From 2026-01-18 to 2026-09-10 no token was ever produced, so under a
+        // silent reject EVERY message in that window would have vanished with a success
+        // message on screen. A loud failure the visitor can act on ("email us directly") is
+        // strictly better than a quiet one nobody can see.
+        //
+        // The arming condition (RECAPTCHA_SECRET_KEY, server-side) is NOT evidence that the
+        // SITE key reached the browser. Those are different variables and they broke apart
+        // once already. This branch is what that divergence now looks like.
+        console.error('Contact form: reCAPTCHA armed but no token in request — rejecting LOUDLY.');
+        return NextResponse.json(
+          { error: 'Could not verify your browser. Please try again, or email us directly.' },
+          { status: 400 }
+        );
       }
       const recaptchaResult = await verifyRecaptcha(recaptchaToken);
       if (!recaptchaResult.success || recaptchaResult.score < RECAPTCHA_THRESHOLD) {
