@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import AnimateIn from '@/components/AnimateIn';
+import Faq from '@/components/Faq';
+import { TESTIMONIAL_COO, TESTIMONIAL_SROI } from '@/lib/siteMeta';
 
 export default function Home() {
   return (
@@ -166,37 +168,34 @@ export default function Home() {
             </h2>
           </AnimateIn>
           <div className="grid md:grid-cols-2 gap-8">
-            <AnimateIn delay={100}>
-              <div className="card p-8 h-full">
-                <svg className="w-12 h-12 text-[#3B8EA5]/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-lg text-[#2F3A44] mb-6 leading-relaxed">
-                  &ldquo;Stacey helped us completely transform how we track and report our outcomes. For the first time, we can show funders exactly what their investment achieves.&rdquo;
-                </p>
-                <div>
-                  <p className="font-semibold text-[#3B8EA5]">Maria Chen</p>
-                  <p className="text-sm text-[#3B8EA5]">Executive Director, Community First Initiative</p>
-                </div>
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={200}>
-              <div className="card p-8 h-full">
-                <svg className="w-12 h-12 text-[#3B8EA5]/30 mb-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-                <p className="text-lg text-[#2F3A44] mb-6 leading-relaxed">
-                  &ldquo;We were drowning in inefficient processes. SDB helped us streamline operations so we could serve 40% more clients without adding staff.&rdquo;
-                </p>
-                <div>
-                  <p className="font-semibold text-[#3B8EA5]">James Rodriguez</p>
-                  <p className="text-sm text-[#3B8EA5]">Program Director, Urban Youth Alliance</p>
-                </div>
-              </div>
-            </AnimateIn>
+            {[TESTIMONIAL_COO, TESTIMONIAL_SROI].map((t, i) => (
+              <AnimateIn key={t.name} delay={100 + i * 100}>
+                <figure className="card p-8 h-full flex flex-col">
+                  <svg
+                    aria-hidden="true"
+                    className="w-12 h-12 text-[#3B8EA5]/30 mb-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                  </svg>
+                  <blockquote className="text-lg text-[#2F3A44] mb-6 leading-relaxed grow">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption>
+                    <span className="font-semibold text-[#3B8EA5] block">{t.name}</span>
+                    <span className="text-sm text-[#3B8EA5]">
+                      {t.title}, {t.org}
+                    </span>
+                  </figcaption>
+                </figure>
+              </AnimateIn>
+            ))}
           </div>
         </div>
       </section>
+
+      <Faq />
 
       {/* CTA Section */}
       <section className="section-gradient py-24 px-4">

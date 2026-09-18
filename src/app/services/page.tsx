@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import AnimateIn from '@/components/AnimateIn';
+import { SERVICES } from '@/lib/siteMeta';
 
 export const metadata = {
   title: 'Services | SDB Social Impact',
@@ -147,6 +148,14 @@ export default function ServicesPage() {
                     <strong className="text-[#3B8EA5]">Typical Timeline:</strong> 8-12 weeks depending on scope and stakeholder availability
                   </p>
                 </div>
+
+                <Link
+                  href={SERVICES.sroi.path}
+                  className="text-[#3B8EA5] font-semibold inline-flex items-center gap-2 group"
+                >
+                  Read more about {SERVICES.sroi.name}
+                  <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </Link>
               </div>
             </AnimateIn>
             <AnimateIn delay={200} direction="right">
@@ -227,6 +236,14 @@ export default function ServicesPage() {
                     <strong className="text-[#3B8EA5]">Ideal For:</strong> Organizations in transition, rapid growth, or seeking to stabilize operations before a major initiative
                   </p>
                 </div>
+
+                <Link
+                  href={SERVICES.coo.path}
+                  className="text-[#3B8EA5] font-semibold inline-flex items-center gap-2 group"
+                >
+                  Read more about {SERVICES.coo.name}
+                  <span className="group-hover:translate-x-1 transition-transform">&rarr;</span>
+                </Link>
               </div>
             </AnimateIn>
             <AnimateIn delay={200} direction="right" className="lg:order-1">
